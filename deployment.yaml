@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kubernetes-app1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-kubernetes-app1
+  template:
+    metadata:
+      labels:
+        app: my-kubernetes-app1
+    spec:
+      containers:
+      - name: my-kubernetes-app1
+        image: perischepkemoi/node-kubernetes:v1.0.0
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        ports:
+        - containerPort: 3000
